@@ -13,5 +13,5 @@ jobs:
       - name: ktlint
         uses: ScaCap/action-ktlint@master
         with:
-          reporter: minozzang508 # Change reporter
+          reporter: github-pr-review # Change reporter
 

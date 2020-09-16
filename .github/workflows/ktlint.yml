@@ -1,17 +1,19 @@
-name: reviewdog
-on: [pull_request]
+name: ktlint
+
+on:
+  pull_request:
+    paths:
+      - "**/*.kt"
+      - ".github/workflows/ktlint.yml"
+
 jobs:
   ktlint:
-    name: Check Code Quality
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clone repo
-        uses: actions/checkout@master
-        with:
-          fetch-depth: 1
-      - name: ktlint
-        uses: ScaCap/action-ktlint@master
-        with:
-          reporter: github-pr-review # Change reporter
+      - name: "checkout"
+        uses: actions/checkout@v2
+
+      - name: "ktlint"
+        uses: "vroy/gha-kotlin-linter@v1"
 

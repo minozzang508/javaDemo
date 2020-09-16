@@ -11,7 +11,7 @@ companion object {
 private var behaviorSubject : PublishSubject<Pair<Constant.BleStatus,String>>? = null
 fun getSubject():PublishSubject<Pair<Constant.BleStatus,String>>?{
 if(behaviorSubject ==null){
-behaviorSubject =  PublishSubject.create<Pair<Constant.BleStatus,String>>()
+    behaviorSubject =  PublishSubject.create<Pair<Constant.BleStatus,String>>()
 }
 return behaviorSubject
 }

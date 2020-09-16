@@ -1,18 +1,17 @@
-name: ktlint
+name: reviewdog
+on: push
+jobs:
+  ktlint:
+    name: Check Code Quality
+    runs-on: ubuntu-latest
 
-on:
-  push:
-    paths:
-      - "**/*.kt"
-
-  jobs:
-    ktlint:
-      runs-on: ubuntu-latest
-
-      steps:
-        - name: "checkout"
-          uses: actions/checkout@v2
-
-        - name: "ktlint"
-          uses: "vroy/gha-kotlin-linter@v1"
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 1
+      - name: ktlint
+        uses: ScaCap/action-ktlint@master
+        with:
+          reporter: minozzang508 # Change reporter
 
